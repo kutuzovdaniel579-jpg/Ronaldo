@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    img {
+        width: 150px;   /* pas grootte aan */
+        height: auto;
+    }
+</style>
+</head>
+<body>
+
+<script>
+    for (let i = 0; i < 100; i++) {
+        const img = document.createElement("img");
+        img.src = "ronaldo.gif"; // zorg dat ronaldo.gif in dezelfde map staat
+        document.body.appendChild(img);
+    }
+</script>
+
+</body>
+</html>
