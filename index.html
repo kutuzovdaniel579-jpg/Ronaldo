@@ -6,32 +6,53 @@
         margin: 0;
         padding: 0;
         display: flex;
-        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        background: black;
     }
 
-    img {
-        width: 150px;
+    .ronaldo {
+        width: 160px;
         height: auto;
+        margin: 10px;
     }
 </style>
 </head>
 <body>
 
-<!-- Eruda debug console -->
+<!-- Eruda (optioneel) -->
 <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
-<script>
-    eruda.init();
-</script>
+<script>eruda.init();</script>
 
-<!-- Ronaldo audio in loop -->
+<!-- Ronaldo audio -->
 <audio src="Ronaldo.mp3" autoplay loop></audio>
 
 <script>
-    for (let i = 0; i < 1000; i++) {
-        const img = document.createElement("img");
-        img.src = "ronaldoMeme.gif";
-        document.body.appendChild(img);
+    const BATCH = 20; // aantal Ronaldo’s per scroll
+    const SRC = "ronaldoMeme.gif";
+
+    function addRonaldoBatch() {
+        for (let i = 0; i < BATCH; i++) {
+            const img = document.createElement("img");
+            img.src = SRC;
+            img.className = "ronaldo";
+            img.loading = "lazy"; // iOS‑vriendelijk
+            document.body.appendChild(img);
+        }
     }
+
+    // eerste batch
+    addRonaldoBatch();
+
+    // infinite scroll
+    window.addEventListener("scroll", () => {
+        const scrollBottom = window.innerHeight + window.scrollY;
+        const pageHeight = document.body.offsetHeight;
+
+        if (scrollBottom >= pageHeight - 200) {
+            addRonaldoBatch();
+        }
+    });
 </script>
 
 </body>
