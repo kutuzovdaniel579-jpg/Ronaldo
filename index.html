@@ -10,12 +10,18 @@
     }
 
     img {
-        width: 150px;   /* pas grootte aan */
+        width: 150px;
         height: auto;
     }
 </style>
 </head>
 <body>
+
+<!-- Eruda debug console -->
+<script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+<script>
+    eruda.init();
+</script>
 
 <!-- Ronaldo audio in loop -->
 <audio src="Ronaldo.mp3" autoplay loop></audio>
@@ -23,7 +29,7 @@
 <script>
     for (let i = 0; i < 1000; i++) {
         const img = document.createElement("img");
-        img.src = "ronaldoMeme.gif"; // zorg dat ronaldoMeme.gif in dezelfde map staat
+        img.src = "ronaldoMeme.gif";
         document.body.appendChild(img);
     }
 </script>
